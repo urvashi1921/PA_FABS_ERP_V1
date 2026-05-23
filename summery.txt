@@ -1,0 +1,7 @@
+Summary of Understanding
+PA FABS is a textile weaving company in Namakkal, Tamil Nadu. Their manufacturing flows through these stages: 
+raw yarn comes in (Inward), goes out for winding or warping (Outward), wound material may return as warping input (Inward - Warping Return), then fabric is woven on looms and finally delivered to customers. There are two production paths:
+Path A (Direct): Inward Material → Outward Warping → Weaving → Delivery
+Path B (Winding First): Inward Material → Outward Winding → Inward Warping Return → Outward Warping → Weaving → Delivery
+The system has 7 core modules: Login/Register (with admin approval), PO Details (purchase order master), Inward Entry, Outward Entry, Return Entry, Manufacturing/Loom Tracking, and Delivery. Two roles exist — Admin (full visibility, reports, user approval) and User/Production Staff (data entry only).
+The existing HTML file is a polished, well-structured demo with all the UI screens already built using vanilla JS and localStorage. The job now is to wire it up to a real Python FastAPI backend with a local PostgreSQL database, replacing localStorage calls with actual API calls.
