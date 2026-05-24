@@ -1,0 +1,50 @@
+:root {
+  --bg: #F7F4F1;
+  --surface: #FFFFFF;
+  --surface2: #F2EEE9;
+  --surface3: #EAE5DE;
+  --border: #E2DDD6;
+  --border2: #CCC5BB;
+  --text: #1C1815;
+  --text2: #6E6560;
+  --text3: #9E9690;
+  /* PA FABS Brand — Red */
+  --brand: #C8102E;
+  --brand-dark: #960D22;
+  --brand-light: #FCE8EC;
+  --brand-mid: #E8405A;
+  /* Accent — warm charcoal */
+  --accent: #C8102E;
+  --accent-light: #FCE8EC;
+  --accent-hover: #960D22;
+  /* Secondary tones */
+  --green: #2E7D52;
+  --green-light: #E6F4ED;
+  --amber: #B45309;
+  --amber-light: #FEF3C7;
+  --blue: #1D4ED8;
+  --blue-light: #EFF6FF;
+  --purple: #6D28D9;
+  --purple-light: #EDE9FE;
+  --danger: #C8102E;
+  --danger-light: #FCE8EC;
+  --warn: #D97706;
+  --warn-light: #FFFBEB;
+  --success: #16A34A;
+  --success-light: #DCFCE7;
+  --info: #0284C7;
+  --info-light: #E0F2FE;
+  /* Shadows */
+  --shadow: 0 1px 3px rgba(0,0,0,0.07), 0 4px 12px rgba(0,0,0,0.04);
+  --shadow-md: 0 2px 8px rgba(0,0,0,0.09), 0 8px 24px rgba(0,0,0,0.05);
+  --shadow-lg: 0 4px 16px rgba(0,0,0,0.11), 0 12px 32px rgba(0,0,0,0.07);
+  /* Geometry */
+  --radius: 10px;
+  --radius-sm: 6px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  /* Gradients */
+  --gradient-brand: linear-gradient(135deg, #C8102E 0%, #960D22 100%);
+  --gradient-dark: linear-gradient(135deg, #1C1815 0%, #3A2E28 100%);
+  --gradient-green: linear-gradient(135deg, #2E7D52 0%, #1A5C38 100%);
+}

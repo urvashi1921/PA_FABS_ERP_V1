@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PA FABS — Textile ERP System</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+<div id="loginScreen">
+  <div class="login-container">
+    <div class="login-left">
+      <div class="login-left-content">
+        <div class="login-brand-logo">
+          <img src="assets/pa_fabs_logo.jpg" alt="PA FABS" onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=\'font-size:18px;font-weight:800;color:white\'>PF</span>';" />
+        </div>
+        <h1 class="login-brand-title">PA FABS</h1>
+        <p class="login-brand-tagline">Crafted in Weaving · Namakkal</p>
+        <p class="login-brand-sub">Textile ERP System</p>
+        <div class="login-features">
+          <div class="login-feature">
+            <span class="login-feature-icon">📋</span>
+            <span class="login-feature-text">PO Management</span>
+          </div>
+          <div class="login-feature">
+            <span class="login-feature-icon">🏭</span>
+            <span class="login-feature-text">18 Looms Tracking</span>
+          </div>
+          <div class="login-feature">
+            <span class="login-feature-icon">📦</span>
+            <span class="login-feature-text">Warehouse Operations</span>
+          </div>
+          <div class="login-feature">
+            <span class="login-feature-icon">🔄</span>
+            <span class="login-feature-text">Cycle Tracking</span>
+          </div>
+          <div class="login-feature">
+            <span class="login-feature-icon">🏭</span>
+            <span class="login-feature-text">Manufacturing & QC</span>
+          </div>
+          <div class="login-feature">
+            <span class="login-feature-icon">🚚</span>
+            <span class="login-feature-text">Delivery & DC Slips</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="login-right">
+      <div class="login-box">
+        <div class="login-logo-wrap">
+          <div class="login-logo">
+            <img src="assets/pa_fabs_logo.jpg" alt="PA FABS" onerror="this.style.display='none';this.parentNode.innerHTML='<span style=\'font-size:14px;font-weight:800;color:#C8102E\'>PF</span>';" />
+          </div>
+          <div class="login-logo-text">
+            <h2>PA FABS</h2>
+            <p>Crafted in Weaving</p>
+          </div>
+        </div>
+        <p class="login-heading">Sign in to your account</p>
+        <div class="role-tabs">
+          <button class="role-tab active" onclick="selectRole('admin')">⚙ Admin</button>
+          <button class="role-tab" onclick="selectRole('user')">👤 Staff User</button>
+        </div>
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" id="loginUser" placeholder="Enter username" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="loginPass" placeholder="Enter password" />
+        </div>
+        <button class="login-btn" onclick="handleLogin()">Sign In →</button>
+        <div style="text-align:center;margin-top:1rem;">
+          <button class="link-btn" onclick="showRegister()">New account registration</button>
+        </div>
+        <p class="login-hint" id="loginError" style="color:var(--brand);display:none;"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="registerScreen" style="display:none;">
+  <div class="register-box">
+    <div class="register-logo">
+      <div class="register-logo-icon">
+        <img src="assets/pa_fabs_logo.jpg" alt="PA FABS" onerror="this.style.display='none';this.parentNode.innerHTML='<span style=\'font-size:18px;font-weight:800;color:#C8102E\'>PF</span>';" />
+      </div>
+      <div>
+        <h1 class="register-title" style="text-align:left;margin:0;">Create Account</h1>
+        <p style="font-size:12px;color:var(--text2);margin:0;">Pending Admin Approval after registration</p>
+      </div>
+    </div>
+    <div class="register-steps">
+      <div class="step-indicator">
+        <div class="step active" data-step="1">1</div>
+        <div class="step-line"></div>
+        <div class="step" data-step="2">2</div>
+        <div class="step-line"></div>
+        <div class="step" data-step="3">3</div>
+      </div>
+      <div class="step-labels" style="display:flex;justify-content:space-between;padding:0 8px;margin-top:.4rem;">
+        <span class="step-label active">Personal</span>
+        <span class="step-label">Account</span>
+        <span class="step-label">Work Info</span>
+      </div>
+    </div>
+    <div id="registerStep1" class="register-step active">
+      <div class="form-group"><label>Full Name *</label><input type="text" id="regFullName" placeholder="Your full name" /></div>
+      <div class="form-group"><label>Email *</label><input type="email" id="regEmail" placeholder="your@email.com" /></div>
+      <div class="form-group"><label>Phone Number *</label><input type="tel" id="regPhone" placeholder="+91 98765 43210" /></div>
+      <button class="register-btn" onclick="nextRegisterStep(2)">Continue →</button>
+    </div>
+    <div id="registerStep2" class="register-step">
+      <div class="form-group"><label>Username *</label><input type="text" id="regUsername" placeholder="Choose a username" /></div>
+      <div class="form-group"><label>Password *</label><input type="password" id="regPassword" placeholder="Min 8 chars, 1 upper, 1 number" /></div>
+      <div class="form-group"><label>Confirm Password *</label><input type="password" id="regConfirmPassword" placeholder="Repeat password" /></div>
+      <div class="form-actions" style="margin-top:1rem;">
+        <button class="btn" onclick="prevRegisterStep(1)">← Back</button>
+        <button class="register-btn" style="margin:0;flex:1;" onclick="nextRegisterStep(3)">Continue →</button>
+      </div>
+    </div>
+    <div id="registerStep3" class="register-step">
+      <div class="form-group"><label>Department</label>
+        <select id="regDepartment">
+          <option value="">Select department</option>
+          <option>Warehouse</option><option>Production</option><option>Quality Control</option><option>Administration</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Role</label>
+        <select id="regRole"><option value="">Select role</option><option>Warehouse Operator</option><option>Production Supervisor</option><option>Quality Inspector</option><option>Driver</option></select>
+      </div>
+      <div class="info-box">⏳ Your account will be <strong>pending approval</strong> until the Admin activates it.</div>
+      <div class="form-actions" style="margin-top:.5rem;">
+        <button class="btn" onclick="prevRegisterStep(2)">← Back</button>
+        <button class="register-btn" style="margin:0;flex:1;" onclick="handleRegister()">Register Account ✓</button>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:1.25rem;">
+      <button class="link-btn" onclick="showLogin()">Already have an account? Sign in</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script type="module">
+  import { login, register } from './js/auth.js';
+
+  let selectedRole = 'admin';
+
+  window.selectRole = (role) => {
+    selectedRole = role;
+    document.querySelectorAll('.role-tab').forEach(tab => tab.classList.remove('active'));
+    event.target.classList.add('active');
+  };
+
+  window.showRegister = () => {
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('registerScreen').style.display = 'flex';
+  };
+
+  window.showLogin = () => {
+    document.getElementById('registerScreen').style.display = 'none';
+    document.getElementById('loginScreen').style.display = 'flex';
+  };
+
+  window.nextRegisterStep = (step) => {
+    if (step === 2) {
+      const fullName = document.getElementById('regFullName').value.trim();
+      const email = document.getElementById('regEmail').value.trim();
+      const phone = document.getElementById('regPhone').value.trim();
+      if (!fullName || !email || !phone) {
+        showToast('Please fill all required fields');
+        return;
+      }
+    } else if (step === 3) {
+      const username = document.getElementById('regUsername').value.trim();
+      const password = document.getElementById('regPassword').value;
+      const confirmPassword = document.getElementById('regConfirmPassword').value;
+      if (!username || !password || !confirmPassword) {
+        showToast('Please fill all required fields');
+        return;
+      }
+      if (password.length < 8) {
+        showToast('Password must be at least 8 characters');
+        return;
+      }
+      if (password !== confirmPassword) {
+        showToast('Passwords do not match');
+        return;
+      }
+    }
+
+    document.querySelectorAll('.register-step').forEach(s => s.classList.remove('active'));
+    document.getElementById(`registerStep${step}`).classList.add('active');
+    document.querySelectorAll('.step').forEach(s => {
+      if (parseInt(s.dataset.step) < step) s.classList.add('completed');
+      if (parseInt(s.dataset.step) === step) s.classList.add('active');
+    });
+    document.querySelectorAll('.step-line').forEach((line, i) => {
+      if (i < step - 1) line.classList.add('completed');
+    });
+  };
+
+  window.prevRegisterStep = (step) => {
+    document.querySelectorAll('.register-step').forEach(s => s.classList.remove('active'));
+    document.getElementById(`registerStep${step}`).classList.add('active');
+    document.querySelectorAll('.step').forEach(s => {
+      if (parseInt(s.dataset.step) > step) s.classList.remove('active', 'completed');
+    });
+    document.querySelectorAll('.step-line').forEach((line, i) => {
+      if (i >= step - 1) line.classList.remove('completed');
+    });
+  };
+
+  window.handleRegister = async () => {
+    const userData = {
+      full_name: document.getElementById('regFullName').value.trim(),
+      email: document.getElementById('regEmail').value.trim(),
+      phone: document.getElementById('regPhone').value.trim(),
+      username: document.getElementById('regUsername').value.trim(),
+      password: document.getElementById('regPassword').value,
+      role: document.getElementById('regRole').value || 'user',
+      department: document.getElementById('regDepartment').value || null
+    };
+
+    try {
+      await register(userData);
+      showToast('Registration successful! Please wait for admin approval.');
+      showLogin();
+    } catch (error) {
+      showToast('Registration failed: ' + error.message);
+    }
+  };
+
+  window.handleLogin = async () => {
+    const username = document.getElementById('loginUser').value.trim();
+    const password = document.getElementById('loginPass').value;
+
+    if (!username || !password) {
+      showToast('Please enter username and password');
+      return;
+    }
+
+    try {
+      const user = await login(username, password, selectedRole);
+      showToast('Login successful! Redirecting...');
+
+      setTimeout(() => {
+        if (user.role === 'admin') {
+          window.location.href = 'admin.html';
+        } else {
+          window.location.href = 'user.html';
+        }
+      }, 500);
+    } catch (error) {
+      showToast('Login failed: ' + error.message);
+    }
+  };
+
+  function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+</script>
+
+</body>
+</html>
